@@ -12,7 +12,7 @@
   },
   "scripts": {
     "watch": "ts-node-dev --respawn --transpile-only",
-    "download-input": "ts-node scripts/download-input.ts"
+    "gen": "ts-node scripts/gen.ts"
   },
   "dependencies": {
     "dotenv-flow": "^3.2.0"
