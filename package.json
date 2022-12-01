@@ -10,7 +10,11 @@
     "typescript": "^4.9.3"
   },
   "scripts": {
-    "watch": "ts-node-dev --respawn --transpile-only"
+    "watch": "ts-node-dev --respawn --transpile-only",
+    "download-input": "ts-node scripts/download-input.ts"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/dotenv-flow": "^3.2.0",
+    "dotenv-flow": "^3.2.0"
+  }
 }
