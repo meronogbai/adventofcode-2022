@@ -5,6 +5,7 @@
   "author": "Meron Ogbai <22526062+meronogbai@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/dotenv-flow": "^3.2.0",
     "@types/node": "16",
     "ts-node-dev": "^2.0.0",
     "typescript": "^4.9.3"
@@ -14,7 +15,6 @@
     "download-input": "ts-node scripts/download-input.ts"
   },
   "dependencies": {
-    "@types/dotenv-flow": "^3.2.0",
     "dotenv-flow": "^3.2.0"
   }
 }
