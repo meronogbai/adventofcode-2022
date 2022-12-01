@@ -10,7 +10,7 @@ const main = async () => {
   let highestCalories = 0;
   let tempCaloriesGroup: number[] = [];
 
-  allCalories.forEach((calories, index) => {
+  allCalories.forEach((calories) => {
     if (calories !== "") {
       tempCaloriesGroup.push(Number(calories));
       return;
