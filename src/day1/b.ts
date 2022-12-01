@@ -41,6 +41,4 @@ const main = async () => {
   console.log(solution);
 };
 
-main().catch((error) => {
-  process.exit(1);
-});
+main();

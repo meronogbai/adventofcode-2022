@@ -28,6 +28,4 @@ const main = async () => {
   console.log(highestCalories);
 };
 
-main().catch((error) => {
-  process.exit(1);
-});
+main();

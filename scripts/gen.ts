@@ -1,7 +1,7 @@
 import { execSync } from "node:child_process";
 import { config } from "dotenv-flow";
 import { resolve } from "node:path";
-import { mkdirSync } from "node:fs";
+import { existsSync, mkdirSync } from "node:fs";
 
 config();
 
@@ -14,15 +14,20 @@ const main = () => {
 
   const dirPath = resolve(__dirname, "..", "src", `day${day}`);
 
+  if (existsSync(dirPath)) {
+    throw new Error(`Files for day${day} have already been generated.`);
+  }
+
   mkdirSync(dirPath, { recursive: true });
 
-  const firstPuzzle = resolve(dirPath, "a.ts");
-  const secondPuzzle = resolve(dirPath, "b.ts");
+  const templatePath = resolve(__dirname, "template");
+  const firstPuzzlePath = resolve(dirPath, "a.ts");
+  const secondPuzzlePath = resolve(dirPath, "b.ts");
   const testInputPath = resolve(dirPath, "test-input");
   const inputPath = resolve(dirPath, "input");
 
-  execSync(`echo >> ${firstPuzzle}`);
-  execSync(`echo >> ${secondPuzzle}`);
+  execSync(`cp ${templatePath} ${firstPuzzlePath}`);
+  execSync(`cp ${templatePath} ${secondPuzzlePath}`);
   execSync(`echo >> ${testInputPath}`);
 
   execSync(
