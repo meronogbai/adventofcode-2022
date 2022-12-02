@@ -21,13 +21,12 @@ const main = () => {
   mkdirSync(dirPath, { recursive: true });
 
   const templatePath = resolve(__dirname, "template");
-  const firstPuzzlePath = resolve(dirPath, "a.ts");
-  const secondPuzzlePath = resolve(dirPath, "b.ts");
+  const solutionPath = resolve(dirPath, "index.ts");
   const testInputPath = resolve(dirPath, "test-input");
   const inputPath = resolve(dirPath, "input");
 
-  execSync(`cp ${templatePath} ${firstPuzzlePath}`);
-  execSync(`cp ${templatePath} ${secondPuzzlePath}`);
+  execSync(`cp ${templatePath} ${solutionPath}`);
+  // @todo figure out how to download test input
   execSync(`echo >> ${testInputPath}`);
 
   execSync(

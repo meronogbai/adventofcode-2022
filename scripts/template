@@ -1,12 +1,13 @@
-import { readFile } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const INPUT_FILENAME = resolve(__dirname, "input");
 
-const main = async () => {
-  const input = await readFile(INPUT_FILENAME, { encoding: "utf-8" });
-  
-  console.log('hello, world!')
-};
+const input = readFileSync(INPUT_FILENAME, { encoding: "utf-8" });
 
-main();
+const a = () => {};
+
+const b = () => {};
+
+console.log("a", a());
+console.log("b", b());
