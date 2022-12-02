@@ -1,10 +1,35 @@
-import { readFile } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const INPUT_FILENAME = resolve(__dirname, "input");
 
-const main = async () => {
-  const input = await readFile(INPUT_FILENAME, { encoding: "utf-8" });
+const input = readFileSync(INPUT_FILENAME, { encoding: "utf-8" });
+
+const a = () => {
+  const allCalories = input.split("\n");
+
+  let highestCalories = 0;
+  let tempCaloriesGroup: number[] = [];
+
+  allCalories.forEach((calories) => {
+    if (calories !== "") {
+      tempCaloriesGroup.push(Number(calories));
+      return;
+    }
+
+    const sumOfCalories = tempCaloriesGroup.reduce((acc, curr) => acc + curr);
+
+    if (sumOfCalories > highestCalories) {
+      highestCalories = sumOfCalories;
+    }
+
+    tempCaloriesGroup = [];
+  });
+
+  return highestCalories;
+};
+
+const b = () => {
   const allCalories = input.split("\n");
 
   const caloriesCarriedByEachElf: number[] = [];
@@ -38,7 +63,8 @@ const main = async () => {
     sortedCaloriesByEachElf[1] +
     sortedCaloriesByEachElf[2];
 
-  console.log(solution);
+  return solution;
 };
 
-main();
+console.log("a", a());
+console.log("b", b());
