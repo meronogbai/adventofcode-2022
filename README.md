@@ -6,6 +6,7 @@ This repo hosts my solutions for 2022's [advent of code](https://adventofcode.co
 
 - node 16+
 - yarn
+- curl
 
 ## How to use?
 
